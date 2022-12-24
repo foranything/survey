@@ -1,10 +1,14 @@
 import * as React from 'react'
-import styles from './styles.module.css'
+import Styled from './style/component'
 
 interface Props {
-  text: string
+  title: string;
 }
 
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+export const Survey = ({title}: Props) => {
+  return <Styled.Container>
+    <Styled.CntChk>
+      <Styled.Header>{title}</Styled.Header>
+    </Styled.CntChk>
+  </Styled.Container>
 }

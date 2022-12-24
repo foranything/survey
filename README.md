@@ -15,12 +15,12 @@ npm install --save survey
 ```tsx
 import React, { Component } from 'react'
 
-import MyComponent from 'survey'
+import Survey from 'survey'
 import 'survey/dist/index.css'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <Survey title={'title'}/>
   }
 }
 ```
