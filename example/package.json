@@ -21,6 +21,7 @@
     "react-dom": "file:../node_modules/react-dom",
     "react-scripts": "file:../node_modules/react-scripts",
     "typescript": "file:../node_modules/typescript",
+    "eslint-config-react-app": "file:../node_modules/eslint-config-react-app",
     "survey": "file:.."
   },
   "devDependencies": {
