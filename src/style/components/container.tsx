@@ -21,3 +21,7 @@ export const CntChk = styled.div`
     padding: 20px;
   }
 `;
+
+export const WrapChk = styled.div`
+  margin-bottom: 10px;
+`;

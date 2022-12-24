@@ -4,7 +4,13 @@ import { Survey } from 'survey'
 import 'survey/dist/index.css'
 
 const App = () => {
-  return <Survey title={'title'}/>
+
+  const items: any = [
+    { text: 'Text1', getter: (value: boolean) => {console.log(value)} },
+    { text: 'Text2', getter: (value: boolean) => {console.log(value)} }
+  ];
+
+  return <Survey title={'Title'} items={items}/>
 }
 
 export default App
