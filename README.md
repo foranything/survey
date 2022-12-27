@@ -18,8 +18,20 @@ import React, { Component } from 'react'
 import Survey from 'k-survey'
 
 class Example extends Component {
+
+  const items = [
+    {
+      text: 'Text1',
+      options: [
+        { text: 'option1' },
+        { text: 'option2' },
+        { text: 'option3' }
+      ]
+    },
+  ];
+
   render() {
-    return <Survey title={'title'}/>
+    return <Survey title={'title'} items={items} />
   }
 }
 ```
