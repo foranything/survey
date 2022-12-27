@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const CntChk = styled.div`
-  width: calc(100% - 400px);
+  width: 100%;
   margin-right: 20px;
   background-color: #fff;
   border: 1px solid #e9ebf5;

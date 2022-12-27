@@ -1,12 +1,14 @@
-import React, { MouseEventHandler } from 'react';
+import React, { MouseEventHandler, useState } from 'react';
 import styled from "styled-components";
+import { Util } from '../util';
+import { Item } from './checkboxes';
+import { Radios } from './radios';
 
 const BoxCheck = styled.div`
   border: 1px solid #c2c4cc;
   padding: 12px 30px;
   font-weight: 300;
   background-color: #fff;
-  margin-bottom: 10px;
   input {
     vertical-align: middle;
     width: 15px;
@@ -23,19 +25,29 @@ const BoxCheck = styled.div`
 `;
 
 interface Props {
-  id: string;
-  text: string;
-  getter: (checked: boolean) => void;
+  item: Item;
 }
 
-export const Checkbox = ({id, text, getter}: Props) => {
+export const Checkbox = ({item}: Props) => {
+
+  const [checked, setChecked] = useState<boolean>(false);
+
   const onClick: MouseEventHandler<HTMLInputElement> = evt => {
     const value = (evt.target as HTMLInputElement).checked;
-    if (getter) getter(value);
+    setChecked(value);
+    if (item.getter) item.getter(value);
+  }
+  if (item.options) {
+    item.options.forEach(option => {
+      if (!option.key) option.key = Util.randChar();
+    })
   }
 
-  return <BoxCheck>
-    <input id={id} type="checkbox" onClick={onClick}></input>
-    <label htmlFor={id} ><b>{text}</b></label>
-  </BoxCheck>
+  return <React.Fragment>
+    <BoxCheck>
+      <input id={item.key} type="checkbox" onClick={onClick}></input>
+      <label htmlFor={item.key} ><b>{item.text}</b></label>
+    </BoxCheck>
+    {item.options ? <Radios options={item.options} group={item.key} visible={checked}></Radios> : undefined}
+  </React.Fragment>
 }
